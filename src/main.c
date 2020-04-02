@@ -210,7 +210,7 @@ int main() {
   int bytes_received;
   unsigned char recv_buffer[RECV_BUFFER_SIZE];
 
-  while ((bytes_received = read(sock, recv_buffer, 1500)) > 0) {
+  while ((bytes_received = read(sock, recv_buffer, RECV_BUFFER_SIZE)) > 0) {
 
     // Allocate space for the decoded DetectorTrackerFrame message.
     vivacity_DetectorTrackerFrame message = vivacity_DetectorTrackerFrame_init_zero;
