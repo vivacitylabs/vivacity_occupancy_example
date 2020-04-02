@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="vivacity_occupancy_example" targetName="vivacity_occupancy_example" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5d8aef45-c73e-4aba-a57c-7fed761cb8a1" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="ProjectId" id="1ZZetHVqVe2TO8yfmFMa4200VV0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.advertisement.text.overridden" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/proto-buffet" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/proto-buffet" />
+      <recent name="$PROJECT_DIR$/nanopb" />
+      <recent name="$PROJECT_DIR$/nanopb/cmake" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="vivacity_occupancy_example" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="vivacity_occupancy_example" TARGET_NAME="vivacity_occupancy_example" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="vivacity_occupancy_example" RUN_TARGET_NAME="vivacity_occupancy_example">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5d8aef45-c73e-4aba-a57c-7fed761cb8a1" name="Default Changelist" comment="" />
+      <created>1585051257052</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585051257052</updated>
+      <workItem from="1585051258936" duration="3475000" />
+      <workItem from="1585742666684" duration="1158000" />
+      <workItem from="1585751640728" duration="23673000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2772" y="339" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585751045145">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2772" y="339" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585751045145" />
+    <state x="684" y="303" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1173/1920.0.1920.1080/3840.0.2560.1440@67.27.1853.1173" timestamp="1585055841548" />
+    <state x="2888" y="279" width="424" height="484" key="FileChooserDialogImpl" timestamp="1585751147055">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2888" y="279" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585751147055" />
+    <state width="1501" height="405" key="GridCell.Tab.0.bottom" timestamp="1585786776488">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1501" height="405" key="GridCell.Tab.0.bottom/67.27.1853.1053/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585786776488" />
+    <state width="1807" height="318" key="GridCell.Tab.0.bottom/67.27.1853.1173/1920.0.1920.1080/3840.0.2560.1440@67.27.1853.1173" timestamp="1585217310039" />
+    <state width="1501" height="405" key="GridCell.Tab.0.center" timestamp="1585786776488">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1501" height="405" key="GridCell.Tab.0.center/67.27.1853.1053/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585786776488" />
+    <state width="1807" height="318" key="GridCell.Tab.0.center/67.27.1853.1173/1920.0.1920.1080/3840.0.2560.1440@67.27.1853.1173" timestamp="1585217310039" />
+    <state width="1501" height="405" key="GridCell.Tab.0.left" timestamp="1585786776487">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1501" height="405" key="GridCell.Tab.0.left/67.27.1853.1053/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585786776487" />
+    <state width="1807" height="318" key="GridCell.Tab.0.left/67.27.1853.1173/1920.0.1920.1080/3840.0.2560.1440@67.27.1853.1173" timestamp="1585217310039" />
+    <state width="1501" height="405" key="GridCell.Tab.0.right" timestamp="1585786776488">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="1501" height="405" key="GridCell.Tab.0.right/67.27.1853.1053/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585786776488" />
+    <state width="1807" height="318" key="GridCell.Tab.0.right/67.27.1853.1173/1920.0.1920.1080/3840.0.2560.1440@67.27.1853.1173" timestamp="1585217310039" />
+    <state x="2594" y="156" key="SettingsEditor" timestamp="1585786179881">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2594" y="156" key="SettingsEditor/67.27.1853.1053/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585786179881" />
+    <state x="2840" y="340" width="866" height="590" key="find.popup" timestamp="1585753743200">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2840" y="340" width="866" height="590" key="find.popup/67.27.1853.1053/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585753743200" />
+    <state x="2998" y="549" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1585751796963">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2998" y="549" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/67.27.1853.1053/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585751796963" />
+  </component>
+</project>

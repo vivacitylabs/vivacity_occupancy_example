@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+package vivacity;
+
+import 'point.proto';
+import 'tracing_context.proto';
+import 'classifying_detector_class_types.proto';
+import 'countline_crossing.proto';
+import 'vector.proto';
+import 'zonal_features.proto';
+
+message ClassConfidence {
+    ClassifyingDetectorClassTypes class_type = 1; // required
+    float class_confidence = 2;
+}
+
+message DetectionBox {  // LabelBox
+    Point top_left = 1;  // required
+    Point bottom_right = 2;  // required
+    ClassifyingDetectorClassTypes class_type = 3; // required
+    float class_confidence = 4;
+    string hashed_anpr_plate = 5;
+    Point center_center = 6;
+    Point bottom_center = 7;
+    Point license_plate_center_center = 8;
+    repeated Point occupancy_zone_points = 9;
+    map<string, Point> custom_points = 16;
+    Point top_right = 17;
+    Point bottom_left = 18;
+    repeated ClassConfidence all_class_confidences = 30; // optional - would be output only between detector and tracker
+}
+
+message TrackHead {  // TrackedBox
+    DetectionBox detection_box = 1; // required
+    uint32 track_number = 2; // required
+    bool is_predicted = 3;
+    uint64 last_detected_timestamp_microseconds = 4; // Only used when is_predicted is true
+    // These will be used when computation of occupancy and crossings happen
+    // outside visionProgram
+    repeated uint32 occupancy_zone_id = 5;
+    repeated CountlineCrossing countline_crossings = 6; // optional, filled by countline_crossing
+    uint64 frame_time_microseconds = 7; // optional, only to be filled in by Traggregator (TM)
+    Vector displacement = 8;
+    bool is_stopped = 9;
+}
+
+message DetectorTrackerFrame {
+    enum VideoID {
+        UNKNOWN_VIDEO_ID = 0;
+        CAM0_MJPEG_YUYV = 1;
+        CAM1_MJPEG_YUYV = 2;
+        FILE = 3;
+    }
+    uint32 frame_number = 1; // This is not required unless we can't assume sequenced message transmission
+    uint32 restart_number = 2; // required
+    uint64 frame_time_microseconds = 3; // required
+    VideoID video_id = 4; // required
+    string video_path = 5;
+    uint32 vision_program_id = 6; // required
+    repeated TrackHead track_heads = 7;
+    TracingContext tracing_ctx = 8;
+    repeated ZonalFeatures zone_oriented_features = 9;
+    repeated TrackSegment track_segments = 10;
+}
+
+message FragmentedDetectorTrackerFrame {
+    uint32 fragment_number = 1;
+    uint32 fragment_total = 2;
+    uint32 total_track_heads = 3;
+    DetectorTrackerFrame detector_tracker_frame_fragment = 4;
+    TracingContext tracing_ctx = 5;
+}
+
+message AssembledTrack {
+    repeated TrackHead track_heads = 1; // required
+    uint32 vision_program_id = 2; // required
+    TracingContext tracing_ctx = 3;
+    uint32 restart_number = 4;  // required
+}
+
+message TrackSegment {
+    uint32 vision_program_id = 1; // required
+    uint32 track_number = 9; // required
+    TrackHead track_head_start = 2; // required
+    TrackHead track_head_end = 3; // required
+    TracingContext tracing_ctx = 4;
+    uint32 restart_number = 5;  // required
+}
+
+message ClassReassignmentMessage {
+    uint32 restart_number = 1;   // required
+    uint32 track_number = 2;   // required
+    ClassConfidence main_class = 3; // required
+    uint32 vision_program_id = 4; // required
+}
+
+message BrokenTrackStitchingMessage {
+    uint32 restart_number = 1; // required
+    repeated uint32 linked_track_numbers = 2; // required
+    uint32 vision_program_id = 3; // required
+}

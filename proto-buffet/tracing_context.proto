@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package vivacity;
+
+message TracingContext {
+    uint64 trace_id = 1;
+    uint64 span_id = 2;
+    uint64 parent_span = 3;
+
+    uint32 flags_bitmask = 4;
+    // From https://www.jaegertracing.io/docs/1.13/client-libraries/#value
+
+    // flags_bitmask is a one byte bitmap, as two hex digits
+    //   Bit 1 (right-most, least significant) is “sampled” flag
+    //     1 means the trace is sampled and all downstream services are advised to respect that
+    //     0 means the trace is not sampled and all downstream services are advised to respect that
+    //     We’re considering a new feature that allows downstream services to upsample if they find their tracing level is too low
+    //   Bit 2 is “debug” flag
+    //     Debug flag should only be set when the sampled flag is set
+    //     Instructs the backend to try really hard not to drop this trace
+    //   Other bits are unused
+
+    map<string, string> baggage = 5;
+}
+

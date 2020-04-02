@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package vivacity;
+
+import 'tracing_context.proto';
+
+message CountlineCrossing {
+    enum CrossingsDirection {
+        UNKNOWN_CROSSINGS_DIRECTION = 0;
+        CLOCKWISE = 1;
+        ANTICLOCKWISE = 2;
+    }
+    uint32 countline_id = 1;
+    CrossingsDirection crossings_direction = 2; // required
+    uint64 crossing_timestamp_microseconds = 3; // required
+    TracingContext tracing_ctx = 4;
+}

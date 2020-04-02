@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package vivacity;
+
+message Vector {
+    int32 x = 1; // required - normalised between 0 & 16383
+    int32 y = 2; // required - normalised between 0 & 16383
+    float magnitude = 3; // required
+}
