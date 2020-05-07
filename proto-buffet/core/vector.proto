@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package vivacity;
+package vivacity.core;
 
 message Vector {
     int32 x = 1; // required - normalised between 0 & 16383

@@ -1,8 +1,9 @@
 syntax = "proto3";
 
-package vivacity;
+package vivacity.core;
 
-import 'tracing_context.proto';
+import "vivacity/core/point.proto";
+import "vivacity/core/tracing_context.proto";
 
 message CountlineCrossing {
     enum CrossingsDirection {
@@ -13,5 +14,11 @@ message CountlineCrossing {
     uint32 countline_id = 1;
     CrossingsDirection crossings_direction = 2; // required
     uint64 crossing_timestamp_microseconds = 3; // required
-    TracingContext tracing_ctx = 4;
+    core.TracingContext tracing_ctx = 4;
+}
+
+message Countline {
+    uint32 countline_id = 1;
+    repeated core.Point points = 2;
+    string detection_box_poi = 3;
 }

@@ -1,32 +1,32 @@
 syntax = "proto3";
 
-package vivacity;
+package vivacity.core;
 
-import 'point.proto';
-import 'tracing_context.proto';
-import 'classifying_detector_class_types.proto';
-import 'countline_crossing.proto';
-import 'vector.proto';
-import 'zonal_features.proto';
+import "vivacity/core/point.proto";
+import "vivacity/core/tracing_context.proto";
+import "vivacity/core/classifying_detector_class_types.proto";
+import "vivacity/core/countline_crossing.proto";
+import "vivacity/core/vector.proto";
+import "vivacity/core/zonal_features.proto";
 
 message ClassConfidence {
-    ClassifyingDetectorClassTypes class_type = 1; // required
+    core.ClassifyingDetectorClassTypes class_type = 1; // required
     float class_confidence = 2;
 }
 
 message DetectionBox {  // LabelBox
-    Point top_left = 1;  // required
-    Point bottom_right = 2;  // required
-    ClassifyingDetectorClassTypes class_type = 3; // required
+    core.Point top_left = 1;  // required
+    core.Point bottom_right = 2;  // required
+    core.ClassifyingDetectorClassTypes class_type = 3; // required
     float class_confidence = 4;
     string hashed_anpr_plate = 5;
-    Point center_center = 6;
-    Point bottom_center = 7;
-    Point license_plate_center_center = 8;
-    repeated Point occupancy_zone_points = 9;
-    map<string, Point> custom_points = 16;
-    Point top_right = 17;
-    Point bottom_left = 18;
+    core.Point center_center = 6;
+    core.Point bottom_center = 7;
+    core.Point license_plate_center_center = 8;
+    repeated core.Point occupancy_zone_points = 9;
+    map<string, core.Point> custom_points = 16;
+    core.Point top_right = 17;
+    core.Point bottom_left = 18;
     repeated ClassConfidence all_class_confidences = 30; // optional - would be output only between detector and tracker
 }
 
@@ -38,9 +38,9 @@ message TrackHead {  // TrackedBox
     // These will be used when computation of occupancy and crossings happen
     // outside visionProgram
     repeated uint32 occupancy_zone_id = 5;
-    repeated CountlineCrossing countline_crossings = 6; // optional, filled by countline_crossing
+    repeated core.CountlineCrossing countline_crossings = 6; // optional, filled by countline_crossing
     uint64 frame_time_microseconds = 7; // optional, only to be filled in by Traggregator (TM)
-    Vector displacement = 8;
+    core.Vector displacement = 8;
     bool is_stopped = 9;
 }
 
@@ -58,8 +58,8 @@ message DetectorTrackerFrame {
     string video_path = 5;
     uint32 vision_program_id = 6; // required
     repeated TrackHead track_heads = 7;
-    TracingContext tracing_ctx = 8;
-    repeated ZonalFeatures zone_oriented_features = 9;
+    core.TracingContext tracing_ctx = 8;
+    repeated core.ZonalFeatures zone_oriented_features = 9;
     repeated TrackSegment track_segments = 10;
 }
 
@@ -68,14 +68,19 @@ message FragmentedDetectorTrackerFrame {
     uint32 fragment_total = 2;
     uint32 total_track_heads = 3;
     DetectorTrackerFrame detector_tracker_frame_fragment = 4;
-    TracingContext tracing_ctx = 5;
+    core.TracingContext tracing_ctx = 5;
 }
 
 message AssembledTrack {
     repeated TrackHead track_heads = 1; // required
     uint32 vision_program_id = 2; // required
-    TracingContext tracing_ctx = 3;
+    core.TracingContext tracing_ctx = 3;
     uint32 restart_number = 4;  // required
+    repeated uint32 turning_movement_zones = 5;
+}
+
+message AssembledTrackBatch {
+    repeated AssembledTrack assembled_tracks = 1;
 }
 
 message TrackSegment {

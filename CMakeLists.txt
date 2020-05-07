@@ -3,25 +3,31 @@ project(vivacity_occupancy_example C)
 
 set(CMAKE_C_STANDARD 99)
 
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/nanopb/cmake)
-set(NANOPB_SRC_ROOT_FOLDER ${CMAKE_CURRENT_SOURCE_DIR}/nanopb)
-set(NANOPB_GENERATOR_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/nanopb/generator)
+file(REMOVE_RECURSE ${CMAKE_CURRENT_SOURCE_DIR}/proto)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/proto)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/proto/vivacity)
+file(COPY proto-buffet DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/proto)
+file(RENAME ${CMAKE_CURRENT_SOURCE_DIR}/proto/proto-buffet ${CMAKE_CURRENT_SOURCE_DIR}/proto/vivacity)
 
-find_package(Nanopb REQUIRED)
-include_directories(${NANOPB_INCLUDE_DIRS})
+file(GLOB_RECURSE PROTOBUFFET_SRCS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/proto proto/*.proto)
 
-file(GLOB PROTOBUFFET_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/proto-buffet/*.proto)
+foreach(proto_file ${PROTOBUFFET_SRCS})
+    message("${proto_file}")
+    execute_process(COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/nanopb/generator/protoc --nanopb_out=${CMAKE_CURRENT_SOURCE_DIR}/proto --plugin=protoc-gen-nanopb=${CMAKE_CURRENT_SOURCE_DIR}/nanopb/generator/protoc-gen-nanopb -I=${CMAKE_CURRENT_SOURCE_DIR}/proto ${proto_file})
+endforeach()
 
-nanopb_generate_cpp(PROTO_SRCS PROTO_HDRS RELPATH ${CMAKE_CURRENT_SOURCE_DIR}/proto-buffet ${PROTOBUFFET_OPTIONS} ${PROTOBUFFET_SRCS})
+file(GLOB_RECURSE PROTO_HDRS ${CMAKE_CURRENT_SOURCE_DIR}/proto/vivacity/*.pb.h)
+file(GLOB_RECURSE PROTO_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/proto/vivacity/*.pb.c)
+file(GLOB_RECURSE NANOPB_HDRS ${CMAKE_CURRENT_SOURCE_DIR}/nanopb/*.h)
+file(GLOB_RECURSE NANOPB_SRC ${CMAKE_CURRENT_SOURCE_DIR}/nanopb/*.c)
 
-include_directories(${CMAKE_CURRENT_BINARY_DIR} /usr/include /usr/local/include /usr/local/include/google/protobuf)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/nanopb ${CMAKE_CURRENT_SOURCE_DIR}/proto /usr/include /usr/local/include /usr/local/include/google/protobuf)
 
 set_source_files_properties(${PROTO_SRCS} ${PROTO_HDRS}
         PROPERTIES GENERATED TRUE)
-
 
 message("${PROTO_SRCS}")
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror -g -O0")
 
-add_executable(vivacity_occupancy_example src/main.c ${PROTO_SRCS} ${PROTO_HDRS})
+add_executable(vivacity_occupancy_example src/main.c ${PROTO_SRCS} ${PROTO_HDRS} ${NANOPB_SRC} ${NANOPB_HDRS})

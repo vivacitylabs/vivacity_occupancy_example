@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package vivacity;
+package vivacity.core;
 
 message TracingContext {
     uint64 trace_id = 1;

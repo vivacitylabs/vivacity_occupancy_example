@@ -1,4 +1,4 @@
-#include "detector_tracker_frame.pb.h"
+#include "vivacity/core/detector_tracker_frame.pb.h"
 #include <netinet/in.h>
 #include <pb.h>
 #include <pb_decode.h>
@@ -21,10 +21,10 @@ typedef struct ZoneOrientedOccupancy {
   uint32_t zone_id;
 
   uint32_t total_occupancy;
-  uint32_t occupancy_by_class[_vivacity_ClassifyingDetectorClassTypes_ARRAYSIZE];
+  uint32_t occupancy_by_class[_vivacity_core_ClassifyingDetectorClassTypes_ARRAYSIZE];
 
   uint32_t total_stopped_vehicles;
-  uint32_t stopped_vehicles_by_class[_vivacity_ClassifyingDetectorClassTypes_ARRAYSIZE];
+  uint32_t stopped_vehicles_by_class[_vivacity_core_ClassifyingDetectorClassTypes_ARRAYSIZE];
 } _ZoneOrientedOccupancy;
 
 typedef struct AllZones {
@@ -34,14 +34,14 @@ typedef struct AllZones {
 
 typedef _AllZones AllZones;
 
-bool has_zone_state_changed(vivacity_ZonalFeatures *received_zonal_features, AllZones *existing_zone_state, int current_zone) {
+bool has_zone_state_changed(vivacity_core_ZonalFeatures *received_zonal_features, AllZones *existing_zone_state, int current_zone) {
 
-  for(int class_id = 0; class_id < _vivacity_ClassifyingDetectorClassTypes_ARRAYSIZE; class_id++) {
+  for(int class_id = 0; class_id < _vivacity_core_ClassifyingDetectorClassTypes_ARRAYSIZE; class_id++) {
     bool class_not_included_in_received = false;
 
     // Since class_features are only included when greater than zero, any that are in this message must be > 0 and should be compared, and any others are implied to be 0
     for(int j = 0; j < received_zonal_features->class_features_count; j++) {
-      vivacity_ClassifyingDetectorClassTypes recvd_class = received_zonal_features->class_features[j].class_type;
+      vivacity_core_ClassifyingDetectorClassTypes recvd_class = received_zonal_features->class_features[j].class_type;
 
       if (class_id == received_zonal_features->class_features[j].class_type) {
         if (existing_zone_state->zones[current_zone].occupancy_by_class[recvd_class] != received_zonal_features->class_features[j].occupancy) {
@@ -87,9 +87,9 @@ bool read_zonal_features_protobuf(pb_istream_t *stream, const pb_field_iter_t *f
     AllZones *existing_zone_state = ((AllZones*) *arg);
 
     // Allocate a struct for to parse the current zone's ZonalFeatures into
-    vivacity_ZonalFeatures received_zonal_features = vivacity_ZonalFeatures_init_zero;
+    vivacity_core_ZonalFeatures received_zonal_features = vivacity_core_ZonalFeatures_init_zero;
 
-    if (!pb_decode(stream, vivacity_ZonalFeatures_fields, &received_zonal_features)){
+    if (!pb_decode(stream, vivacity_core_ZonalFeatures_fields, &received_zonal_features)){
       return false;
     }
 
@@ -110,7 +110,7 @@ bool read_zonal_features_protobuf(pb_istream_t *stream, const pb_field_iter_t *f
         }
 
         // Reset any existing stored class occupancies to zero, since class zonal features will only be populated in the message if they're greater than zero, so we assume they're zero and populate them if we find them
-        for(int j = 0; j < _vivacity_ClassifyingDetectorClassTypes_ARRAYSIZE; j++) {
+        for(int j = 0; j < _vivacity_core_ClassifyingDetectorClassTypes_ARRAYSIZE; j++) {
           // Index the class-based features by all the values in the ClassifyingDetectorClassTypes enum
           existing_zone_state->zones[i].occupancy_by_class[j] = 0;
           existing_zone_state->zones[i].stopped_vehicles_by_class[j] = 0;
@@ -122,7 +122,7 @@ bool read_zonal_features_protobuf(pb_istream_t *stream, const pb_field_iter_t *f
 
         // Store the occupancies for whichever class_features were sent, indexed by class_type
         for(int j = 0; j < received_zonal_features.class_features_count; j++) {
-          vivacity_ClassifyingDetectorClassTypes recvd_class = received_zonal_features.class_features[j].class_type;
+          vivacity_core_ClassifyingDetectorClassTypes recvd_class = received_zonal_features.class_features[j].class_type;
           existing_zone_state->zones[i].occupancy_by_class[recvd_class] = received_zonal_features.class_features[j].occupancy;
           existing_zone_state->zones[i].stopped_vehicles_by_class[recvd_class] = received_zonal_features.class_features[j].stopped_vehicles_count;
         }
@@ -134,12 +134,12 @@ bool read_zonal_features_protobuf(pb_istream_t *stream, const pb_field_iter_t *f
   return true;
 }
 
-void print_occupancy_table(vivacity_DetectorTrackerFrame *message, AllZones *zone_data) {
+void print_occupancy_table(vivacity_core_DetectorTrackerFrame *message, AllZones *zone_data) {
   printf("Zone ID  | %5s", "TOTAL");
 
   // Print the class names as a table header
-  for(int i = 1; i < _vivacity_ClassifyingDetectorClassTypes_ARRAYSIZE; i++) {
-    printf("%14s", vivacity_ClassifyingDetectorClassTypes_name(i));
+  for(int i = 1; i < _vivacity_core_ClassifyingDetectorClassTypes_ARRAYSIZE; i++) {
+    printf("%14s", vivacity_core_ClassifyingDetectorClassTypes_name(i));
   }
 
   printf("\n");
@@ -156,7 +156,7 @@ void print_occupancy_table(vivacity_DetectorTrackerFrame *message, AllZones *zon
     printf("%3d      | %5d", zone_data->zones[j].zone_id, zone_data->zones[j].total_occupancy);
 
     // Loop through each class and print its occupancy for this zone
-    for(int i = 1; i < _vivacity_ClassifyingDetectorClassTypes_ARRAYSIZE; i++) {
+    for(int i = 1; i < _vivacity_core_ClassifyingDetectorClassTypes_ARRAYSIZE; i++) {
       printf("%14d", zone_data->zones[j].occupancy_by_class[i]);
     }
     // End the row
@@ -213,7 +213,7 @@ int main() {
   while ((bytes_received = read(sock, recv_buffer, RECV_BUFFER_SIZE)) > 0) {
 
     // Allocate space for the decoded DetectorTrackerFrame message.
-    vivacity_DetectorTrackerFrame message = vivacity_DetectorTrackerFrame_init_zero;
+    vivacity_core_DetectorTrackerFrame message = vivacity_core_DetectorTrackerFrame_init_zero;
 
     // Pass a pointer to the structure we're using to store the occupancies in
     // This will be accessible in our decode callback read_zonal_features_protobuf(), so we can decide where to put our data
@@ -230,7 +230,7 @@ int main() {
     pb_istream_t stream = pb_istream_from_buffer(recv_buffer, bytes_received);
 
     // Decode the message into the struct we allocated
-    decode_status = pb_decode(&stream, vivacity_DetectorTrackerFrame_fields, &message);
+    decode_status = pb_decode(&stream, vivacity_core_DetectorTrackerFrame_fields, &message);
 
     // Check for errors
     if (!decode_status)

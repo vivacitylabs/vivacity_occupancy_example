@@ -1,13 +1,18 @@
 syntax = "proto3";
 
-package vivacity;
+package vivacity.core;
 
 message Point {
     int32 x = 1; // required - normalised between 0 & 16383
     int32 y = 2; // required - normalised between 0 & 16383
-    PointF undistorted = 3;
+    PointI undistorted = 3;
     PointF gps = 4; // WSG84 (decimal degrees, N/E +ve)
     PointF local_cartesian_meters = 5;
+}
+
+message PointI {
+    int32 x = 1; // normalised between 0 & 16383
+    int32 y = 2; // normalised between 0 & 16383
 }
 
 message PointF {

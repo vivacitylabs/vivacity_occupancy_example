@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package vivacity;
+package vivacity.core;
 
 import "nanopb.proto";
 
@@ -21,4 +21,13 @@ enum ClassifyingDetectorClassTypes {
     EMERGENCY_CAR = 11;
     EMERGENCY_VAN = 12;
     FIRE_ENGINE = 13;
+    PLAYER = 14;
+    LICENSE_PLATE = 15;
+    DOG = 16;
+    POWERED_WATERCRAFT = 17;
+    UNPOWERED_WATERCRAFT = 18;
+    MAINTENANCE_VEHICLE = 19;
+    LAWNMOWER = 20;
+    WHEELCHAIR = 21;
+    PUSHCHAIR = 22;
 }

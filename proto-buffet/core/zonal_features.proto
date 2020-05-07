@@ -1,34 +1,32 @@
 syntax = "proto3";
 
-package vivacity;
+package vivacity.core;
 
-import 'classifying_detector_class_types.proto';
-import 'tracing_context.proto';
-import 'vector.proto';
+import "vivacity/core/classifying_detector_class_types.proto";
+import "vivacity/core/tracing_context.proto";
+import "vivacity/core/vector.proto";
 import 'nanopb.proto';
 
 message ZonalFeatures {
     uint32 vision_program_id = 1; // deprecated - backwards compatible
     uint32 zone_id = 2; // required
     uint64 timestamp_micro = 3; // deprecated - backwards compatible
-
-    // Setting the (nanopb).max_count to 14 since there are only 14 classes supported in the ClassifyingDetectorClassTypes enum, so there can be no more than 14
     repeated ClassFeatures class_features = 4 [(nanopb).max_count = 14];  // If a class is not included, it can be assumed to have 0 for that features.
     uint32 aggregated_occupancy = 6; // aggregate across all classes
     uint32 aggregated_crossings_clockwise = 7; // aggregate across all classes
     uint32 aggregated_crossings_anticlockwise = 8; // aggregate across all classes
     float average_distance_scalar = 9; // average across all classes
-    Vector average_displacement = 10; // average across all classes
+    core.Vector average_displacement = 10; // average across all classes
     uint32 aggregated_stopped_vehicles_count = 11; // aggregate across all classes
-    TracingContext tracing_ctx = 5; // 5 to be backwards compatible
+    core.TracingContext tracing_ctx = 5; // 5 to be backwards compatible
 }
 
 message ClassFeatures {
-    ClassifyingDetectorClassTypes class_type = 1;
+    core.ClassifyingDetectorClassTypes class_type = 1;
     uint32 occupancy = 2; // aggregate for class
     uint32 crossings_clockwise = 3; // aggregate for class
     uint32 crossings_anticlockwise = 4; // aggregate for class
     float average_distance_scalar = 5; // average for class
-    Vector average_displacement = 6; // average for class
+    core.Vector average_displacement = 6; // average for class
     uint32 stopped_vehicles_count = 7; // aggregate for class
 }
