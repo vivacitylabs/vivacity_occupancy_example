@@ -40,8 +40,8 @@ Then run
 ## Generating C files manually without CMake
 ```bash
 mkdir vivacity
-cd vivacity
-../nanopb/generator/protoc --nanopb_out=. --plugin=protoc-gen-nanopb=../nanopb/generator/protoc-gen-nanopb -I../proto-buffet/ ../proto-buffet/*.proto
+cp -r proto-buffet/* vivacity 
+./nanopb/generator/protoc --nanopb_out=. --plugin=protoc-gen-nanopb=./nanopb/generator/protoc-gen-nanopb -I. ./vivacity/**/*.proto
 ```
 
 If generating manually, you'll need to set up your build system with `vivacity` in the include path, and to compile and link all of the generated `*.pb.c` files
