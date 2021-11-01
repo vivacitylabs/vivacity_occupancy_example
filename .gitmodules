@@ -1,0 +1,3 @@
+[submodule "vivacity-proto-buffet"]
+	path = vivacity-proto-buffet
+	url = git@github.com:vivacitylabs/vivacity-proto-buffet.git
