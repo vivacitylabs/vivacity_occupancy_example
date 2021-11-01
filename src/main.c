@@ -23,6 +23,12 @@ typedef struct ZoneOrientedOccupancy {
   uint32_t total_occupancy;
   uint32_t occupancy_by_class[_vivacity_core_ClassifyingDetectorClassTypes_ARRAYSIZE];
 
+  uint32_t total_directional_occupancy;
+  uint32_t directional_occupancy_by_class[_vivacity_core_ClassifyingDetectorClassTypes_ARRAYSIZE];
+
+  uint32_t total_contra_directional_occupancy;
+  uint32_t contra_directional_occupancy_by_class[_vivacity_core_ClassifyingDetectorClassTypes_ARRAYSIZE];
+
   uint32_t total_stopped_vehicles;
   uint32_t stopped_vehicles_by_class[_vivacity_core_ClassifyingDetectorClassTypes_ARRAYSIZE];
 } _ZoneOrientedOccupancy;
@@ -45,6 +51,14 @@ bool has_zone_state_changed(vivacity_core_ZonalFeatures *received_zonal_features
 
       if (class_id == received_zonal_features->class_features[j].class_type) {
         if (existing_zone_state->zones[current_zone].occupancy_by_class[recvd_class] != received_zonal_features->class_features[j].occupancy) {
+          return true;
+        }
+
+        if (existing_zone_state->zones[current_zone].directional_occupancy_by_class[recvd_class] != received_zonal_features->class_features[j].directional_occupancy) {
+          return true;
+        }
+
+        if (existing_zone_state->zones[current_zone].contra_directional_occupancy_by_class[recvd_class] != received_zonal_features->class_features[j].contra_directional_occupancy) {
           return true;
         }
 
@@ -71,7 +85,9 @@ bool has_zone_state_changed(vivacity_core_ZonalFeatures *received_zonal_features
 
   // Check whether the existing_zone_state totals for this zone are going to change from this message
   if (existing_zone_state->zones[current_zone].total_occupancy != received_zonal_features->aggregated_occupancy ||
-      existing_zone_state->zones[current_zone].total_stopped_vehicles != received_zonal_features->aggregated_stopped_vehicles_count) {
+      existing_zone_state->zones[current_zone].total_stopped_vehicles != received_zonal_features->aggregated_stopped_vehicles_count ||
+      existing_zone_state->zones[current_zone].total_directional_occupancy != received_zonal_features->aggregated_directional_occupancy ||
+      existing_zone_state->zones[current_zone].total_contra_directional_occupancy != received_zonal_features->aggregated_contra_directional_occupancy) {
     return true;
   }
 
@@ -119,12 +135,16 @@ bool read_zonal_features_protobuf(pb_istream_t *stream, const pb_field_iter_t *f
         // Store the total occupancy for this zone at this index
         existing_zone_state->zones[i].total_occupancy = received_zonal_features.aggregated_occupancy;
         existing_zone_state->zones[i].total_stopped_vehicles = received_zonal_features.aggregated_stopped_vehicles_count;
+        existing_zone_state->zones[i].total_directional_occupancy = received_zonal_features.aggregated_directional_occupancy;
+        existing_zone_state->zones[i].total_contra_directional_occupancy = received_zonal_features.aggregated_contra_directional_occupancy;
 
         // Store the occupancies for whichever class_features were sent, indexed by class_type
         for(int j = 0; j < received_zonal_features.class_features_count; j++) {
           vivacity_core_ClassifyingDetectorClassTypes recvd_class = received_zonal_features.class_features[j].class_type;
           existing_zone_state->zones[i].occupancy_by_class[recvd_class] = received_zonal_features.class_features[j].occupancy;
           existing_zone_state->zones[i].stopped_vehicles_by_class[recvd_class] = received_zonal_features.class_features[j].stopped_vehicles_count;
+          existing_zone_state->zones[i].directional_occupancy_by_class[recvd_class] = received_zonal_features.class_features[j].directional_occupancy;
+          existing_zone_state->zones[i].contra_directional_occupancy_by_class[recvd_class] = received_zonal_features.class_features[j].contra_directional_occupancy;
         }
         break;
       }
