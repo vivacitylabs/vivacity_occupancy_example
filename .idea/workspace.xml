@@ -7,49 +7,112 @@
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d8aef45-c73e-4aba-a57c-7fed761cb8a1" name="Default Changelist" comment="" />
+    <list default="true" id="5d8aef45-c73e-4aba-a57c-7fed761cb8a1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/protoeditor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nanopb/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nanopb/generator/nanopb_generator.py2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nanopb/generator/protoc-gen-nanopb-py2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vivacity-proto-buffet-options/core/classifying_detector_class_types.options" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vivacity-proto-buffet-options/core/zonal_features.options" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/cmake/FindNanopb.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/cmake/nanopb-config-version.cmake.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/cmake/nanopb-config.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/cmake/nanopb.mk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/cmake/pb_syshdr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/generator/nanopb/options.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/generator/nanopb_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/nanopb/generator/nanopb_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/generator/proto/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/generator/proto/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/generator/proto/_utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/generator/proto/google/protobuf/descriptor.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/generator/proto/nanopb.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/generator/proto/nanopb_pb2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/generator/protoc" beforeDir="false" afterPath="$PROJECT_DIR$/nanopb/generator/protoc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/generator/protoc-gen-nanopb.bat" beforeDir="false" afterPath="$PROJECT_DIR$/nanopb/generator/protoc-gen-nanopb.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/generator/protoc.bat" beforeDir="false" afterPath="$PROJECT_DIR$/nanopb/generator/protoc.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/nanopb/pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/pb_common.c" beforeDir="false" afterPath="$PROJECT_DIR$/nanopb/pb_common.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/pb_common.h" beforeDir="false" afterPath="$PROJECT_DIR$/nanopb/pb_common.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/pb_decode.c" beforeDir="false" afterPath="$PROJECT_DIR$/nanopb/pb_decode.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/pb_decode.h" beforeDir="false" afterPath="$PROJECT_DIR$/nanopb/pb_decode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/pb_encode.c" beforeDir="false" afterPath="$PROJECT_DIR$/nanopb/pb_encode.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nanopb/pb_encode.h" beforeDir="false" afterPath="$PROJECT_DIR$/nanopb/pb_encode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1ZZetHVqVe2TO8yfmFMa4200VV0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.advertisement.text.overridden" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/proto-buffet" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="cmake.loaded.for.project" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/nanopb-0.4.5" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="google.protobuf.language" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/proto-buffet" />
+      <recent name="$PROJECT_DIR$/vivacity-proto-buffet-options/core" />
       <recent name="$PROJECT_DIR$/nanopb" />
-      <recent name="$PROJECT_DIR$/nanopb/cmake" />
+      <recent name="$PROJECT_DIR$/nanopb/generator" />
+      <recent name="$PROJECT_DIR$/proto-buffet/vivacity/core" />
+      <recent name="$PROJECT_DIR$/proto-buffet" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/vivacity-proto-buffet/core" />
+      <recent name="$PROJECT_DIR$/vivacity-proto-buffet-options/core" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/proto-buffet" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="vivacity_occupancy_example" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="vivacity_occupancy_example" TARGET_NAME="vivacity_occupancy_example" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="vivacity_occupancy_example" RUN_TARGET_NAME="vivacity_occupancy_example">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="vivacity_occupancy_example" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="vivacity_occupancy_example" TARGET_NAME="vivacity_occupancy_example" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="vivacity_occupancy_example" RUN_TARGET_NAME="vivacity_occupancy_example">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -62,54 +125,46 @@
       <updated>1585051257052</updated>
       <workItem from="1585051258936" duration="3475000" />
       <workItem from="1585742666684" duration="1158000" />
-      <workItem from="1585751640728" duration="23673000" />
+      <workItem from="1585751640728" duration="28227000" />
+      <workItem from="1588851975294" duration="4100000" />
+      <workItem from="1635767570519" duration="11009000" />
+      <workItem from="1635783477706" duration="7595000" />
     </task>
+    <task id="LOCAL-00001" summary="Lower CMake required version">
+      <created>1585834845449</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585834845449</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Update proto-buffet folder structure and CMakeLists.txt to use correct protobuf package names">
+      <created>1588862777680</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1588862777680</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Update README for manual generation">
+      <created>1588863774071</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1588863774071</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="2772" y="339" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585751045145">
-      <screen x="1920" y="0" width="2560" height="1440" />
-    </state>
-    <state x="2772" y="339" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585751045145" />
-    <state x="684" y="303" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1173/1920.0.1920.1080/3840.0.2560.1440@67.27.1853.1173" timestamp="1585055841548" />
-    <state x="2888" y="279" width="424" height="484" key="FileChooserDialogImpl" timestamp="1585751147055">
-      <screen x="1920" y="0" width="2560" height="1440" />
-    </state>
-    <state x="2888" y="279" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585751147055" />
-    <state width="1501" height="405" key="GridCell.Tab.0.bottom" timestamp="1585786776488">
-      <screen x="1920" y="0" width="2560" height="1440" />
-    </state>
-    <state width="1501" height="405" key="GridCell.Tab.0.bottom/67.27.1853.1053/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585786776488" />
-    <state width="1807" height="318" key="GridCell.Tab.0.bottom/67.27.1853.1173/1920.0.1920.1080/3840.0.2560.1440@67.27.1853.1173" timestamp="1585217310039" />
-    <state width="1501" height="405" key="GridCell.Tab.0.center" timestamp="1585786776488">
-      <screen x="1920" y="0" width="2560" height="1440" />
-    </state>
-    <state width="1501" height="405" key="GridCell.Tab.0.center/67.27.1853.1053/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585786776488" />
-    <state width="1807" height="318" key="GridCell.Tab.0.center/67.27.1853.1173/1920.0.1920.1080/3840.0.2560.1440@67.27.1853.1173" timestamp="1585217310039" />
-    <state width="1501" height="405" key="GridCell.Tab.0.left" timestamp="1585786776487">
-      <screen x="1920" y="0" width="2560" height="1440" />
-    </state>
-    <state width="1501" height="405" key="GridCell.Tab.0.left/67.27.1853.1053/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585786776487" />
-    <state width="1807" height="318" key="GridCell.Tab.0.left/67.27.1853.1173/1920.0.1920.1080/3840.0.2560.1440@67.27.1853.1173" timestamp="1585217310039" />
-    <state width="1501" height="405" key="GridCell.Tab.0.right" timestamp="1585786776488">
-      <screen x="1920" y="0" width="2560" height="1440" />
-    </state>
-    <state width="1501" height="405" key="GridCell.Tab.0.right/67.27.1853.1053/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585786776488" />
-    <state width="1807" height="318" key="GridCell.Tab.0.right/67.27.1853.1173/1920.0.1920.1080/3840.0.2560.1440@67.27.1853.1173" timestamp="1585217310039" />
-    <state x="2594" y="156" key="SettingsEditor" timestamp="1585786179881">
-      <screen x="1920" y="0" width="2560" height="1440" />
-    </state>
-    <state x="2594" y="156" key="SettingsEditor/67.27.1853.1053/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585786179881" />
-    <state x="2840" y="340" width="866" height="590" key="find.popup" timestamp="1585753743200">
-      <screen x="1920" y="0" width="2560" height="1440" />
-    </state>
-    <state x="2840" y="340" width="866" height="590" key="find.popup/67.27.1853.1053/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585753743200" />
-    <state x="2998" y="549" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1585751796963">
-      <screen x="1920" y="0" width="2560" height="1440" />
-    </state>
-    <state x="2998" y="549" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/67.27.1853.1053/1920.0.2560.1440@1920.0.2560.1440" timestamp="1585751796963" />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Lower CMake required version" />
+    <MESSAGE value="Update proto-buffet folder structure and CMakeLists.txt to use correct protobuf package names" />
+    <MESSAGE value="Update README for manual generation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update README for manual generation" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
