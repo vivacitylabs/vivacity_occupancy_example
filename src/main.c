@@ -16,6 +16,7 @@
 // This is a typical ethernet MTU, but most DetectorTrackerFrame protobuf UDP packets will only be ~100 bytes
 #define RECV_BUFFER_SIZE 1500
 
+#define NUM_CLASSES_TO_PRINT 14
 
 typedef struct ZoneOrientedOccupancy {
   uint32_t zone_id;
@@ -158,7 +159,7 @@ void print_occupancy_table(vivacity_core_DetectorTrackerFrame *message, AllZones
   printf("Zone ID  | %5s", "TOTAL");
 
   // Print the class names as a table header
-  for(int i = 1; i < _vivacity_core_ClassifyingDetectorClassTypes_ARRAYSIZE; i++) {
+  for(int i = 1; i < NUM_CLASSES_TO_PRINT; i++) {
     printf("%14s", vivacity_core_ClassifyingDetectorClassTypes_name(i));
   }
 
@@ -176,7 +177,7 @@ void print_occupancy_table(vivacity_core_DetectorTrackerFrame *message, AllZones
     printf("%3d      | %5d", zone_data->zones[j].zone_id, zone_data->zones[j].total_occupancy);
 
     // Loop through each class and print its occupancy for this zone
-    for(int i = 1; i < _vivacity_core_ClassifyingDetectorClassTypes_ARRAYSIZE; i++) {
+    for(int i = 1; i < NUM_CLASSES_TO_PRINT; i++) {
       printf("%14d", zone_data->zones[j].occupancy_by_class[i]);
     }
     // End the row
