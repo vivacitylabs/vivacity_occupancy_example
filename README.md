@@ -11,6 +11,13 @@ It prints the sensor ID and timestamp of each message it receives, and prints a 
 * `cmake` (3.15) (will probably work with lower if `CMakeLists.txt` is edited)
 * `python3`
 
+## Submodules
+Initialise and update the protobuffet submodule:
+```bash
+git submodule update --init --recursive
+```
+
+
 ## Getting started
 
 First, create a Python virtual environment to work in and install Python protobuf in. This is needed by nanopb to be able to generate C source files. 
