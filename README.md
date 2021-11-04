@@ -67,4 +67,4 @@ The program takes 3 arguments:
 
 For example:
 `./dummy_message_sender -a 127.0.0.1 -p 8000 -r 10000` 
-will send the messages to the example decoder application. 
+will send the messages to the example decoder application at an interval of 10ms. This is equivalent to 10 sensors sending messages at 10Hz each
