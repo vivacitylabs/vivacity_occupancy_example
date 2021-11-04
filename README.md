@@ -4,6 +4,8 @@ This example application listens for UDP packets on port 8000, and attempts to d
 
 It prints the sensor ID and timestamp of each message it receives, and prints a table of zonal occupancies by class whenever these values change.
 
+It is intended to be used as a starting point for developing a C application for consuming and processing Vivacity `DetectorTrackerFrame`s eg on traffic signal controllers or UTC instations. 
+
 ## Dependencies
 
 * `build-essential` (or equivalent for your distro)
