@@ -6,6 +6,8 @@ It prints the sensor ID and timestamp of each message it receives, and prints a 
 
 It is intended to be used as a starting point for developing a C application for consuming and processing Vivacity `DetectorTrackerFrame`s eg on traffic signal controllers or UTC instations. 
 
+A dummy message sender application is provided for convenience.
+
 ## Dependencies
 
 * `build-essential` (or equivalent for your distro)
@@ -55,3 +57,14 @@ cp -r proto-buffet/* vivacity
 
 If generating manually, you'll need to set up your build system with `vivacity` in the include path, and to compile and link all of the generated `*.pb.c` files
   
+## Dummy Message Sender
+Run this program to send dummy Detector Tracker Frame messages. 
+
+The program takes 3 arguments:
+- `-r` rate: the rate at which to send messages. Measured in microsends between each message.
+- `-a` ip address: the IP address to send the UDP frames to
+- `-p` port: the port to send the UDP frames to.
+
+For example:
+`./dummy_message_sender -a 127.0.0.1 -p 8000 -r 10000` 
+will send the messages to the example decoder application. 
