@@ -13,7 +13,6 @@
 // This depends on how many sensors are sending here, and how many zones per sensor - it can vary a lot
 #define MAX_EXPECTED_ZONES 32
 
-// This is a typical ethernet MTU, but most DetectorTrackerFrame protobuf UDP packets will only be ~100 bytes
 #define RECV_BUFFER_SIZE 64000
 
 #define NUM_CLASSES_TO_PRINT 14
